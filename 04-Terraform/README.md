@@ -1,11 +1,11 @@
 # Phase 2 — Terraform Infrastructure as Code
 ## From Zero AWS Access to Verified Infrastructure as Code
 
-**Phase status:** Foundation complete. First resource live.
+**Phase status:** Foundation complete. First resource live. ADR-004 formally accepted, retroactive gap documented.
 **ADR reference:** decisions/ADR-004-Terraform.md
 **Case study:** Nicoliv Energy Crown Gas Utility
 **Author:** Maximus Ikengwa
-**Last updated:** 2026-06-07
+**Last updated:** 2026-06-18
 
 ---
 
@@ -523,7 +523,9 @@ Ruth Akinola's question is now answerable. Who created that VPC. When. Under wha
 
 See decisions/ADR-004-Terraform.md for the complete decision record.
 
-The ADR was written and committed before this phase began. The timestamp proves the decision preceded the implementation.
+The ADR was not written before this phase began. Terraform was installed, the AWS CLI was configured, and the VPC (vpc-0611b97607b5fb7ca) was built and applied on 2026-06-07, before ADR-004 existed. That is a real breach of the ADR-before-implementation standard this repository is built on, and it is named explicitly rather than hidden.
+
+ADR-004 was written and accepted on 2026-06-18, documenting the decision retroactively and naming the gap as the first caught-and-corrected process violation in this portfolio. The commit history shows both timestamps. Reading the two together is the evidence, not a contradiction to avoid.
 
 ---
 
