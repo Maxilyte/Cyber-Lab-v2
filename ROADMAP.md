@@ -1,171 +1,102 @@
-# Cyber-Lab-v2 — Roadmap
+# Roadmap — Cyber-Lab-v2
 
-**Started:** 2026-06-02  
-**Pace:** ~8 effective hours/week  
-**Current phase:** Phase 1 — Secure Engineering Foundations
-
----
-
-## Phase 1 — Secure Engineering Foundations
-
-### Completed
-- [x] Git installation and configuration — *2026-06-02*
-- [x] Repository creation and commit workflow — *2026-06-02*
-- [x] Git history and inspection (`git log`, `git diff`) — *2026-06-02*
-- [x] SSH key generation (Ed25519) — *2026-06-04*
-- [x] GitHub authentication via SSH — *2026-06-04*
-- [x] First professional repository push — *2026-06-04*
-- [x] ADR-001 — Git — *2026-06-04*
-- [x] ADR-002 — SSH — *2026-06-04*
-- [x] Nicoliv Energy case study — *2026-06-04*
-
-### In Progress
-- [ ] Repository architecture (root README, folder structure)
-- [ ] ADR-003 — GitHub
-- [ ] Diagrams — Git lifecycle, SSH authentication flow
-
-**Phase portfolio deliverable:** Structured engineering repository with full ADR documentation, threat models, and case study — readable as a security engineering portfolio from the first click.
+**Last updated:** 2026-06-18
+**Current phase:** Phase 2 — Infrastructure as Code
+**Pace:** ~8 effective hours/week
+**Target completion:** ~28 weeks from start date
 
 ---
 
-## Phase 2 — Infrastructure as Code
+## Progress
 
-### Planned
-- [ ] Terraform installation and provider configuration
-- [ ] AWS provider setup
-- [ ] VPC deployment in code
-- [ ] Subnets, route tables, internet gateway
-- [ ] Security groups
-- [ ] EC2 instance deployment
-- [ ] Remote state management (S3 + DynamoDB lock)
-- [ ] Terraform modules (reusable components)
-- [ ] IaC security scanning (tfsec, Checkov)
-- [ ] ADR-004 — Terraform
+### Phase 1 — Secure Engineering Foundations
+*Building the version control, authentication, and documentation infrastructure that every future phase depends on.*
 
-**Phase portfolio deliverable:** Enterprise AWS environment built entirely in Terraform — no manual console configuration.
-
----
-
-## Phase 3 — AWS Cloud Engineering
-
-### Planned
-- [ ] IAM — users, groups, roles, policies, least privilege
-- [ ] VPC architecture — public/private subnets, NAT gateways
-- [ ] EC2 — Linux server, hardening, security groups
-- [ ] S3 — storage, encryption, lifecycle, bucket policies
-- [ ] CloudWatch — logging and monitoring
-- [ ] Route tables and network flow
-- [ ] ADR-005 — AWS
-
-**Phase portfolio deliverable:** Fully documented AWS architecture modelled on Nicoliv Energy network segmentation — IT/OT segmentation concept rebuilt as cloud-native design.
-
----
-
-## Phase 4 — DevSecOps Automation
-
-### Planned
-- [ ] GitHub Actions — pipeline fundamentals
-- [ ] Terraform automation — push to deploy
-- [ ] Checkov — infrastructure scanning gate
-- [ ] Trivy — container and dependency scanning gate
-- [ ] tfsec — Terraform-specific scanning gate
-- [ ] Secrets management — AWS Secrets Manager
-- [ ] Pipeline security review
-- [ ] ADR-006 — GitHub Actions
-
-**Phase portfolio deliverable:** DevSecOps pipeline — Push → Scan (tfsec, Checkov, Trivy) → Gate → Deploy. Every push is automatically validated before it reaches infrastructure.
-
----
-
-## Phase 5 — Containers
-
-### Planned
-- [ ] Docker — images, containers, volumes, networking
-- [ ] Docker Compose — multi-container applications
-- [ ] Docker security hardening
-- [ ] Kubernetes fundamentals — pods, deployments, services
-- [ ] EKS — managed Kubernetes on AWS
-- [ ] Container security — image scanning, RBAC, network policies
-- [ ] ADR-007 — Kubernetes
-
-**Phase portfolio deliverable:** Secured cloud-native application platform on EKS, deployed via the Phase 4 pipeline.
-
----
-
-## Phase 6 — Cloud Detection Engineering
-
-### Planned
-- [ ] CloudTrail — API audit logging
-- [ ] GuardDuty — threat detection
-- [ ] Security Hub — centralised findings
-- [ ] AWS Config — compliance posture
-- [ ] Detection rules as code (deployed via Terraform)
-- [ ] Threat hunting exercises
-- [ ] ADR-008 — Detection Platform
-
-**Phase portfolio deliverable:** Cloud-native detection platform deployed as code — GuardDuty, Security Hub, and Config rules all provisioned via Terraform with documented detection rationale.
-
----
-
-## Phase 7 — AI-Assisted Security Operations
-
-### Planned
-- [ ] Alert triage automation — Lambda function
-- [ ] LLM integration — incident summarisation
-- [ ] Automated risk prioritisation
-- [ ] End-to-end pipeline: finding → summary → suggested response
-- [ ] ADR-009 — AI Integration
-
-**Phase portfolio deliverable (flagship):**
-```
-GuardDuty Finding
-      ↓
-   Lambda
-      ↓
-     LLM
-      ↓
-Incident Summary + Suggested Response
-```
-Fully automated. Deployed via Terraform. Documented with threat model and governance mapping.
-
----
-
-## Phase 8 — Cyber Resilience & Governance
-
-### Planned
-- [ ] GRC operational mapping — controls to frameworks
-- [ ] Executive dashboards
-- [ ] Risk communication documentation
-- [ ] Compliance evidence package (NIST CSF, IEC 62443)
-- [ ] Board-level reporting templates
-- [ ] Resilience framework documentation
-
-**Phase portfolio deliverable:** End-to-end governance documentation demonstrating the full chain:
-```
-Telemetry → Detection → Investigation → Governance → Executive Risk Communication
-```
-
----
-
-## Certification Track (parallel)
-
-| Certification | Target timing | Status |
+| Component | Status | Completed |
 |---|---|---|
-| GRC Mastery (Abed Hamdan) | Active | 🔄 In Progress |
-| AWS Solutions Architect Associate | Phase 2–3 completion | ⬜ Planned |
-| AWS Security Specialty | Phase 6 completion | ⬜ Planned |
+| 01 — Git Fundamentals | ✅ Complete | 2026-06-02 |
+| 02 — SSH Authentication & GitHub | ✅ Complete | 2026-06-04 |
+| 03 — Repository Architecture & Standards | ✅ Complete | 2026-06-04 |
 
 ---
 
-## End State
+### Phase 2 — Infrastructure as Code
+*Everything becomes code. No manual console clicks. The infrastructure is the documentation.*
 
-At completion this repository demonstrates:
+| Component | Status | Completed |
+|---|---|---|
+| 04 — Terraform Foundations | 🔄 In Progress | ADR-004 accepted 2026-06-18, first VPC live (vpc-0611b97607b5fb7ca) |
+| 05 — AWS Core (IAM, VPC, EC2, S3) | ⬜ Upcoming | — |
+| 06 — IaC Security Scanning | ⬜ Upcoming | — |
 
-- **Infrastructure as Code** — every environment reproducible from a single `terraform apply`
-- **DevSecOps automation** — security gates embedded in every delivery pipeline
-- **Cloud security architecture** — network segmentation, IAM, detection, all as code
-- **AI-assisted operations** — automated triage from detection to incident summary
-- **Governance integration** — every control mapped to NIST CSF and IEC 62443
-- **IT/OT security depth** — the differentiator almost nobody in cloud security holds
+**Portfolio project:** Enterprise AWS environment built entirely in Terraform
+**Open item:** ADR-005 — Terraform Remote State (S3 backend + DynamoDB locking) still pending; current state is local only
 
-**Profile at completion:** Cloud Security / DevSecOps Engineer with IT/OT Security depth.
+---
+
+### Phase 3 — Cloud Architecture
+*Rebuilding the Purdue Model IT/OT segmentation concept as cloud-native network architecture.*
+
+| Component | Status | Completed |
+|---|---|---|
+| 07 — VPC Design & Segmentation | ⬜ Upcoming | — |
+| 08 — IAM Architecture & Least Privilege | ⬜ Upcoming | — |
+| 09 — Network Segmentation (IT/OT analogue) | ⬜ Upcoming | — |
+| 10 — Multi-Cloud Extension: Azure (Entra ID federation parity) | 🔒 Future — not active scope | Add only after components 07-09 are complete; extends existing Entra ID/SAML federation from AWS into Azure |
+
+---
+
+### Phase 4 — DevSecOps Automation
+*Security gates in the pipeline. Every push is scanned before it deploys.*
+
+| Component | Status | Completed |
+|---|---|---|
+| 11 — CI/CD Pipeline (GitHub Actions) | ⬜ Upcoming | — |
+| 12 — Docker Fundamentals (build/push step in pipeline) | ⬜ Upcoming | — |
+| 13 — Security Gates (tfsec, Checkov, Trivy) | ⬜ Upcoming | — |
+| 14 — Secrets Management (AWS Secrets Manager) | ⬜ Upcoming | — |
+
+**Portfolio project:** DevSecOps pipeline — Push → Scan → Gate → Deploy
+
+---
+
+### Phase 5 — Cloud Detection Engineering
+*Building detection capability as code. Alerts that mean something.*
+
+| Component | Status | Completed |
+|---|---|---|
+| 15 — GuardDuty | ⬜ Upcoming | — |
+| 16 — Security Hub & Config | ⬜ Upcoming | — |
+| 17 — Detection as Code | ⬜ Upcoming | — |
+
+**Portfolio project:** Cloud-native detection platform deployed via Terraform
+
+---
+
+### Phase 6 — AI-Assisted Security Operations
+*Connecting detection to intelligence. GuardDuty findings to LLM-generated triage summaries.*
+
+| Component | Status | Completed |
+|---|---|---|
+| 18 — Alert Triage Automation | ⬜ Upcoming | — |
+| 19 — LLM Incident Summarisation | ⬜ Upcoming | — |
+| 20 — AI-SOC Integration | ⬜ Upcoming | — |
+
+---
+
+### Phase 7 — Cyber Resilience & Governance
+*Closing the loop — proving the platform is not just built, but defensible and explainable to leadership.*
+
+| Component | Status | Completed |
+|---|---|---|
+| 21 — GRC Operational Mapping | ⬜ Upcoming | — |
+| 22 — Executive Reporting | ⬜ Upcoming | — |
+| 23 — Resilience Framework | ⬜ Upcoming | — |
+
+---
+
+## Notes
+
+- **Platform Engineering (Docker/Kubernetes/Helm/ArgoCD/service mesh) is explicitly out of scope.** It dilutes the IT/OT + Cloud Security/DevSecOps differentiator this portfolio is built around. Docker alone is folded into Phase 4 as a CI/CD component, not its own phase. Revisit only if a specific target role requires it (Review Trigger event, same standard used in the ADRs).
+- **Azure is the confirmed second cloud** for the multi-cloud extension, chosen over GCP for direct continuity with the existing Entra ID/SAML federation, stronger fit with the Canadian enterprise/utility sector, and alignment with the IT/OT background this portfolio leverages.
+- This roadmap is the single source of truth. Any future planning document (including CLAUDE_OPERATING_SYSTEM.md) should be reconciled against this file, not run in parallel with it.
