@@ -1,0 +1,8 @@
+skip-check:
+  - CKV_AWS_144  # Cross-region replication not required for lab. Single-region deployment acceptable.
+  - CKV_AWS_145  # KMS CMK not required for lab. AES256 with AWS-managed keys sufficient at this scale.
+  - CKV2_AWS_61  # Lifecycle policy not configured. Versions managed manually in lab environment.
+  - CKV2_AWS_62  # S3 event notifications not required. No downstream pipeline exists in lab.
+  - CKV_AWS_119  # KMS CMK not required for DynamoDB in lab. AWS-managed encryption sufficient.
+  - CKV_AWS_28   # DynamoDB PITR not required. Lock table holds transient data only.
+  - CKV_AWS_18   # Access logging not enabled on logging and flow logs buckets. Acceptable for lab.
