@@ -1,4 +1,4 @@
-﻿# backend.tf
+# backend.tf
 # Remote state infrastructure for Cyber-Lab-v2
 # S3 bucket stores the Terraform state file
 # DynamoDB table provides state locking to prevent concurrent applies
