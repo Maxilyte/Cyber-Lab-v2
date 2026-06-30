@@ -4,7 +4,7 @@
 # Replaces AdministratorAccess with scoped permissions based on actual usage
 
 data "aws_iam_user" "terraform_runner" {
-  user_name = "teraform-runner"
+  user_name = "terraform-runner"
 }
 
 data "aws_iam_policy_document" "terraform_runner" {
@@ -166,7 +166,17 @@ data "aws_iam_policy_document" "terraform_runner" {
       "iam:GetUser",
       "iam:ListAttachedUserPolicies",
       "iam:GetPolicy",
-      "iam:GetPolicyVersion"
+      "iam:GetPolicyVersion",
+      "iam:AttachUserPolicy",
+      "iam:DetachUserPolicy",
+      "iam:CreatePolicy",
+      "iam:DeletePolicy",
+      "iam:CreatePolicyVersion",
+      "iam:DeletePolicyVersion",
+      "iam:ListPolicyVersions",
+      "iam:TagPolicy",
+      "iam:UntagPolicy",
+      "iam:GetUserPolicy"
     ]
     resources = ["*"]
   }
