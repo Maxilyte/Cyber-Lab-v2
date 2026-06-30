@@ -1,0 +1,21 @@
+# Trivy accepted risks for lab environment
+# Cyber-Lab-v2 Phase 2
+
+# AWS-0132: KMS CMK not required for lab environment.
+# AES256 with AWS-managed keys provides sufficient protection at this scale.
+# Production environments should use KMS CMK for key rotation control and audit trails.
+AWS-0132
+
+# AWS-0024: DynamoDB PITR not required for lock table.
+# This table holds transient lock entries only. A lost lock is manually recoverable.
+# Not a data store requiring point-in-time recovery.
+AWS-0024
+
+# AWS-0025: DynamoDB KMS CMK not required for lab.
+# AWS-managed encryption is sufficient for a transient lock table at this scale.
+AWS-0025
+
+# AWS-0089: Access logging not enabled on logging and flow logs buckets.
+# Enabling logging on the logging bucket creates a circular dependency.
+# The flow logs bucket is itself a logging destination; recursive logging adds no value.
+AWS-0089
