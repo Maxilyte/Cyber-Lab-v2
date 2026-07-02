@@ -30,6 +30,9 @@ data "aws_iam_policy_document" "terraform_runner" {
       "ec2:DescribeNatGateways",
       "ec2:DescribeAddresses",
       "ec2:DescribeInstances",
+      "ec2:DescribeInstanceAttribute",
+      "ec2:DescribeInstanceCreditSpecifications",
+      "ec2:DescribeVolumes",
       "ec2:DescribeInstanceTypes",
       "ec2:DescribeImages",
       "ec2:DescribeKeyPairs",
@@ -86,7 +89,7 @@ data "aws_iam_policy_document" "terraform_runner" {
   }
 
   # EC2 write actions
-  # VPC, security groups, flow logs, tags
+  # VPC, security groups, flow logs, tags, instances, key pairs
   statement {
     sid    = "EC2WriteActions"
     effect = "Allow"
@@ -127,7 +130,9 @@ data "aws_iam_policy_document" "terraform_runner" {
       "ec2:TerminateInstances",
       "ec2:StopInstances",
       "ec2:StartInstances",
-      "ec2:ModifyInstanceAttribute"
+      "ec2:ModifyInstanceAttribute",
+      "ec2:ImportKeyPair",
+      "ec2:DeleteKeyPair"
     ]
     resources = ["*"]
   }
