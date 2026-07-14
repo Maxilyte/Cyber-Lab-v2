@@ -11,13 +11,19 @@ pool:
 
 variables:
   TF_DIR: '04-Terraform'
+  TF_VERSION: '1.9.8'
 
 steps:
   - checkout: self
     displayName: 'Checkout Cyber-Lab-v2'
 
+  - task: TerraformInstaller@1
+    displayName: 'Install Terraform $(TF_VERSION)'
+    inputs:
+      terraformVersion: $(TF_VERSION)
+
   - script: terraform version
-    displayName: 'Terraform version (agent pre-installed)'
+    displayName: 'Terraform version check'
 
   - script: terraform fmt -check -recursive
     displayName: 'Terraform fmt — formatting gate'
