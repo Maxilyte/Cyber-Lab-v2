@@ -1,0 +1,32 @@
+# Cyber-Lab-v2 — Terraform CI pipeline
+# Stage 1 of the promotion path: validate before anything applies.
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  TF_DIR: '04-Terraform'
+
+steps:
+  - checkout: self
+    displayName: 'Checkout Cyber-Lab-v2'
+
+  - script: terraform version
+    displayName: 'Terraform version (agent pre-installed)'
+
+  - script: terraform fmt -check -recursive
+    displayName: 'Terraform fmt — formatting gate'
+    workingDirectory: $(TF_DIR)
+
+  - script: terraform init -backend=false
+    displayName: 'Terraform init (no backend)'
+    workingDirectory: $(TF_DIR)
+
+  - script: terraform validate
+    displayName: 'Terraform validate — syntax & consistency gate'
+    workingDirectory: $(TF_DIR)
